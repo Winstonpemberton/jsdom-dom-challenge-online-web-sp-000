@@ -1,11 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
-let minus = document.getElementById('minus') 
-let plus = document.getElementById('plus') 
-let heart = document.getElementById('heart') 
-let pause = document.getElementById('pause') 
-let counter = document.getElementById("counter") 
-let commentForm = document.getElementById("comment-form") 
-let timer 
+let minus = document.getElementById('minus')
+let plus = document.getElementById('plus')
+let heart = document.getElementById('heart')
+let pause = document.getElementById('pause')
+let counter = document.getElementById("counter")
+let commentForm = document.getElementById("comment-form")
+let timer
 let counterHash = {}
 
     let startCounter = function(){
@@ -14,7 +14,7 @@ let counterHash = {}
         timer = setTimeout(function(){
             startCounter();
         }, 1000);
-        
+
     }
     startCounter();
 
@@ -34,21 +34,21 @@ let counterHash = {}
         let counterNumber = parseInt(document.getElementById("counter").innerHTML)
         let likes = document.getElementsByClassName("likes")[0]
 
-        
+
         // if (!(`${counterNumber}` in counterHash) ){
         if (document.getElementById(`${counterNumber}`) === null ){
-            counterHash[`${counterNumber}`] = 1 
+            counterHash[`${counterNumber}`] = 1
             let newLike = document.createElement("li")
             newLike.id = counterNumber
-            newLike.innerHTML = `${counterNumber} has been liked ${counterHash[`${counterNumber}`]} times` 
+            newLike.innerHTML = `${counterNumber} has been liked ${counterHash[`${counterNumber}`]} times`
             likes.appendChild(newLike)
         } else if(`${counterNumber}` in counterHash){
-            counterHash[`${counterNumber}`] += 1 
+            counterHash[`${counterNumber}`] += 1
             let addToLike = document.getElementById(`${counterNumber}`)
-            addToLike.innerHTML = `${counterNumber} has been liked ${counterHash[`${counterNumber}`]} times` 
+            addToLike.innerHTML = `${counterNumber} has been liked ${counterHash[`${counterNumber}`]} times`
             likes.appendChild(addToLike)
         }
- 
+
     })
     pause.addEventListener("click", function() {
 
@@ -81,4 +81,4 @@ let counterHash = {}
         newComment.innerHTML = commentInfo
         comments.appendChild(newComment)
       }
-}) 
+})
